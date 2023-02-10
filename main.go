@@ -13,7 +13,7 @@ import (
 func main() {
 	router := router.NewRouter(controller.NewUserController(service.NewUserService()))
 	server := http.Server{
-		Addr:    os.Getenv("PORT"),
+		Addr:    ":"+os.Getenv("PORT"),
 		Handler: middleware.NewMiddleware(router),
 	}
 	server.ListenAndServe()
